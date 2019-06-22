@@ -22,9 +22,14 @@ public class SignInTest {
 
         driver.findElement(By.linkText("Your trips")).click();
         driver.findElement(By.id("SignIn")).click();
-
+        
+        
+        
+        driver.switchTo().alert();
+        driver.findElement(By.xpath("//*[@id=\'email\']")).sendKeys("mohitchaturvedi091@gmail.com");
+        driver.findElement(By.xpath("//*[@id=\'password\']")).sendKeys("123456");
         driver.findElement(By.id("signInButton")).click();
-
+        
         String errors1 = driver.findElement(By.id("errors1")).getText();
         Assert.assertTrue(errors1.contains("There were errors in your submission"));
         driver.quit();
